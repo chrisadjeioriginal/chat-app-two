@@ -1,0 +1,152 @@
+body{
+    background-color: black;
+}
+
+#container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+
+}
+
+#component-holder{
+    position: relative;
+    width: 30vw;
+    height: 80vh;
+    background-color: rgb(38, 38, 38);
+    border-radius: 20px;
+
+   
+    background-size: cover;
+}
+
+#banner{
+    width:  100%;
+    height: 5vh;
+    background-color: rgba(19, 17, 17, 0.552);
+    /* background-color: red; */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+#add-button-holder{
+    min-width: 100px;
+    height: 35px;
+    border-radius: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.5s ease-in-out;
+
+}
+
+#add-button{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+   
+}
+
+
+.change-color-width{
+    cursor: pointer;
+    width:  100px;
+    background-color:  rgb(175, 226, 9);
+   
+  
+}
+
+#paragraph-holder{
+    position: relative;
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 270px;
+    
+}
+
+
+p{
+    font-size: 15px;
+    font-family: cursive;
+    color: white;
+
+
+}
+
+
+#info-controls{
+    position: relative;
+    left:35vw;
+    top: 50px;
+    width: 15vw;
+    height: 10vh;
+    border-radius: 10px;
+    /* background-color: rgba(19, 17, 17, 0.552) ; */
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.circle{
+    width: 40px;
+    height: 40px;
+    border-radius: 25px;
+    background-color: white;
+}
+
+#logout{
+     width: 90px;
+    height: 40px;
+     border-radius: 20px;
+    background-color: rgb(130, 0, 0);
+     border: 2px solid rgb(255, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: cursive;
+    cursor: pointer;
+     transition: background-color 0.5s ease;
+}
+
+#logout:hover{
+     background-color:rgb(255, 0, 0);
+
+}
+
+#info{
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: cursive;
+    background-color: gray;
+    border: 2px solid white;
+     transition: background-color 0.5s ease;
+    
+}
+
+#info:hover{
+    background-color: white;
+    cursor: pointer;
+}
+
+#help{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: cursive;
+    background-color: gray;
+     border: 2px solid white;
+    transition: background-color 0.5s ease;
+}
+#help:hover{
+    background-color: white;
+    cursor: pointer;
+}

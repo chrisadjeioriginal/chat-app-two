@@ -1,5 +1,7 @@
 body{
     background-color: black;
+    background-image: url("../assets/forest_pic_2.jpg");
+    background-size: cover;
 }
 
 #container{

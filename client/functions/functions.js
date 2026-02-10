@@ -51,7 +51,7 @@ export function makeForm() {
   closeButton.style.top = "1vh";
   closeButton.style.fontSize = "1vh";
   closeButton.style.cursor = "pointer";
-  closeButton.id = "close-button";
+  closeButton.id = "search-box-close-button";
 
   // These lines add an event listener to the close button
   closeButton.addEventListener("click", (e) =>
@@ -71,7 +71,25 @@ export function makeForm() {
   return searchBox;
 }
 
-// FUNCTION 2 : ShowUserInfo
+//FUNCTION2 changeColor
+
+function changeColor(div, color1, color2) {
+  div.addEventListener("mouseenter", (e) => {
+    e.currentTarget.style.backgroundColor = color1;
+  });
+
+  div.addEventListener("mouseleave", (e) => {
+    e.currentTarget.style.backgroundColor = color2;
+  });
+}
+
+function destroyDiv(div, elementToDestroy) {
+  div.addEventListener("click", (e) => {
+    e.elementToDestroy.remove();
+  });
+}
+
+// FUNCTION 3 : ShowUserInfo
 // This function displays the users information i.e profile pic, username ,date joined & bio
 export function ShowUserInfo(username, date, bio) {
   const infoBox = document.createElement("div");
@@ -113,6 +131,7 @@ export function ShowUserInfo(username, date, bio) {
   profilePic.style.width = "80%";
   profilePic.style.height = "75%";
   profilePic.style.borderRadius = "50%";
+  profilePic.style.cursor = "pointer";
 
   const details = document.createElement("ul");
   details.style.position = "relative";
@@ -165,4 +184,73 @@ export function ShowUserInfo(username, date, bio) {
   infoBox.appendChild(details);
 
   return infoBox;
+}
+
+//FUNCTION3
+
+export function showLogoutMessage() {
+  const logoutMessageBox = document.createElement("div");
+  logoutMessageBox.style.position = "absolute";
+  logoutMessageBox.style.minWidth = "65%";
+  logoutMessageBox.style.minHeight = "22%";
+  logoutMessageBox.style.backgroundColor = "black";
+  logoutMessageBox.style.top = "40%";
+  logoutMessageBox.style.display = "flex";
+  logoutMessageBox.style.flexDirection = "column";
+  logoutMessageBox.style.alignItems = "center";
+  logoutMessageBox.style.border = "1px solid rgb(94, 94, 94)";
+
+  const message = "Are you sure you want to logout?";
+
+  const messageHolder = document.createElement("p");
+  messageHolder.style.position = "relative";
+  messageHolder.style.top = "2vh";
+  messageHolder.textContent = message;
+  logoutMessageBox.appendChild(messageHolder);
+
+  const buttonHolder = document.createElement("div");
+  buttonHolder.style.position = "relative";
+  buttonHolder.style.width = "100%";
+  buttonHolder.style.height = "20%";
+  buttonHolder.style.display = "flex";
+  buttonHolder.style.justifyContent = "space-evenly";
+
+  buttonHolder.style.marginTop = "5vh";
+  buttonHolder.style.color = "white";
+
+  const yesButton = document.createElement("div");
+  const noButton = document.createElement("div");
+
+  noButton.style.width = "20%";
+  noButton.style.height = "90%";
+  noButton.style.backgroundColor = "rgb(7, 16, 138)";
+  //   noButton.style.borderRadius = "20%";
+  noButton.textContent = "no";
+  noButton.style.display = "flex";
+  noButton.style.justifyContent = "center";
+  noButton.style.alignItems = "center";
+  noButton.style.fontFamily = "cursive";
+  noButton.style.cursor = "pointer";
+  noButton.id = "no-button";
+
+  yesButton.style.width = "20%";
+  yesButton.style.height = "90%";
+  yesButton.style.backgroundColor = " rgb(130, 0, 0)";
+  //   yesButton.style.borderRadius = "20%";
+  yesButton.textContent = "yes";
+  yesButton.style.display = "flex";
+  yesButton.style.justifyContent = "center";
+  yesButton.style.alignItems = "center";
+  yesButton.style.fontFamily = "cursive";
+  yesButton.style.cursor = "pointer";
+
+  changeColor(noButton, "rgb(10, 26, 255)", "rgb(7, 16, 138)");
+  changeColor(yesButton, " rgb(255, 0, 0)", "rgb(130, 0, 0)");
+
+  buttonHolder.appendChild(noButton);
+  buttonHolder.appendChild(yesButton);
+
+  logoutMessageBox.appendChild(buttonHolder);
+
+  return logoutMessageBox;
 }

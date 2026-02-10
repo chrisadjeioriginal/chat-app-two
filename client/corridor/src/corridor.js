@@ -1,10 +1,18 @@
-import { makeForm, ShowUserInfo } from "../../functions/functions.js";
+import {
+  makeForm,
+  ShowUserInfo,
+  showLogoutMessage,
+} from "../../functions/functions.js";
 
 const addButton = document.getElementById("add-button");
-const infoButton = document.getElementById("info");
+const infoButton = document.getElementById("info-button");
 const holder = document.getElementById("component-holder");
 let infoBoxIsOpened = false;
 let infoBoxCloseButton;
+let seacrhBoxIsOpened = false;
+let seacrhBoxCloseButton;
+let logoutMessageBoxIsOpened = false;
+let noButton;
 
 addButton.addEventListener("mouseenter", (e) => {
   e.currentTarget.parentElement.classList.add("change-color-width");
@@ -15,8 +23,21 @@ addButton.addEventListener("mouseleave", (e) => {
 });
 
 addButton.addEventListener("click", () => {
-  const form = makeForm();
-  holder.appendChild(form);
+  if (seacrhBoxIsOpened === false) {
+    const form = makeForm();
+    holder.appendChild(form);
+    seacrhBoxIsOpened = true;
+
+    seacrhBoxCloseButton = form.querySelector("#search-box-close-button");
+
+    if (seacrhBoxCloseButton) {
+      seacrhBoxCloseButton.addEventListener("click", (e) => {
+        e.currentTarget.parentElement.remove();
+        seacrhBoxIsOpened = false;
+        seacrhBoxCloseButton = undefined;
+      });
+    }
+  }
 });
 
 infoButton.addEventListener("click", () => {
@@ -37,5 +58,22 @@ infoButton.addEventListener("click", () => {
         infoBoxCloseButton = undefined;
       });
     }
+  }
+});
+
+const logoutButton = document.getElementById("logout-button");
+logoutButton.addEventListener("click", () => {
+  if (logoutMessageBoxIsOpened === false) {
+    const logoutMessageBox = showLogoutMessage();
+    holder.appendChild(logoutMessageBox);
+    logoutMessageBoxIsOpened = true;
+
+    noButton = logoutMessageBox.querySelector("#no-button");
+
+    noButton.addEventListener("click", (e) => {
+      e.currentTarget.parentElement.parentElement.remove();
+      logoutMessageBoxIsOpened = false;
+      noButton = undefined;
+    });
   }
 });
